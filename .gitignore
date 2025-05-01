@@ -41,5 +41,14 @@ zig-cache
 *.sublime-workspace
 /.env
 atlassian-ide-plugin.xml
-__pycache__
 .vscode
+
+# Python specific
+__pycache__
+.ipynb_checkpoints/
+
+# R specific
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
