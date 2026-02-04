@@ -52,3 +52,5 @@ const sumFilesSize = (node: FileNode): number => {
 
     return size
 }
+
+export {}

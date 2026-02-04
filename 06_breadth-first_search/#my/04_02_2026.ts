@@ -9,29 +9,28 @@ const graphi = {
     'jonny': [],
 }
 
+// Аухеть просто я с первого раза написал идеально
 const bfs = (
     startNode: string,
     target: string,
     network: Record<string, string[]>
 ): boolean => {
     if (startNode === target) {
-        console.log('we found ' + target)
         return true
     }
 
-    const queue: string[] = [startNode];
+    const queue: string[] = [startNode]
     const visited = new Set<string>([startNode])
 
     let i = 0
 
     while (i < queue.length) {
-        const currentNode = queue[i++];
-        const childNodes = network[currentNode] || []
+        const currentNode = queue[i++]
+        const childNode = network[currentNode] || []
 
-        for (let child of childNodes) {
+        for (let child of childNode) {
             if (!visited.has(child)) {
                 if (child === target) {
-                    console.log('we found ' + target)
                     return true
                 }
 
@@ -41,17 +40,8 @@ const bfs = (
         }
     }
 
-    console.log('we didn\'t find ' + target)
     return false
 }
 
-
-const morningRoutineGraph = {
-    'wakeUp': [],
-    'packLunch': ['wakeUp'],
-    'brushTeeth': ['wakeUp'],
-    'exercise': ['wakeUp'],
-    'eatBreakfast': ['brushTeeth'],
-    'shower': ['exercise'],
-    'getDressed': ['shower']
-}
+console.log(bfs('you', 'thom', graphi))
+export {}
