@@ -21,3 +21,5 @@ const binary = (arr: number[], item: number): number | null => {
 }
 
 console.log(binary(arr, 5))
+
+export {}

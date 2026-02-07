@@ -42,3 +42,5 @@ const quicksort = (
 const data = [5, 2, 9, 1, 5, 6]
 quicksort(data)
 // но важно что этот подход мутирует исходных массив. но можно вызывать вот так quicksort([...data]) и тогда все норм
+
+export {}

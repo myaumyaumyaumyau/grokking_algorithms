@@ -16,3 +16,5 @@ const quickSort = (arr: number[]): number[] => {
 
     return [...quickSort(less), ...equal, ...quickSort(greater)]
 }
+
+export {}

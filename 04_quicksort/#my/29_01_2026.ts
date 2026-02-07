@@ -41,5 +41,6 @@ const anotherQuicksort = (arr: number[]): number[] => {
     }
 
     return [...anotherQuicksort(less), ...equal, ...anotherQuicksort(greater)]
-
 }
+
+export {}

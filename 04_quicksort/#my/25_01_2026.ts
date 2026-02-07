@@ -17,3 +17,5 @@ const quicksort = (arr: number[]): number[] => {
         ...quicksort(greaterThanPivot)
     ]
 }
+
+export {}

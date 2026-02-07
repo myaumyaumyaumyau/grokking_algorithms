@@ -52,3 +52,5 @@ const findMaxNumberRecursive = (arr: number[], index = 0): number => {
 
     return max
 }
+
+export {}
