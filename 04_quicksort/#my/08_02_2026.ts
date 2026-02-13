@@ -14,4 +14,29 @@ const quicksort = (arr: number[]): number[] => {
     return [...quicksort(lessThanPivot), pivot, ...quicksort(greaterThanPivot)]
 }
 
+const quicksort2 = (arr: number[]): number[] => {
+    if (arr.length < 2) {
+        return arr
+    }
+
+    const pivotIndex = Math.floor(Math.random() * arr.length)
+    const pivot = arr[pivotIndex]
+
+    const lessThanPivot: number[] = []
+    const greaterThanPivot: number[] = []
+    const equalToPivot: number[] = []
+
+    for (let n of arr) {
+        if (n > pivot) {
+            greaterThanPivot.push(n)
+        } else if (n < pivot) {
+            lessThanPivot.push(n)
+        } else {
+            equalToPivot.push(n)
+        }
+    }
+
+    return [...quicksort2(lessThanPivot), ...equalToPivot, ...quicksort2(greaterThanPivot)]
+}
+
 export {}
