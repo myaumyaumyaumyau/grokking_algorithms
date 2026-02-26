@@ -29,3 +29,5 @@ const selectionSortInPlace = (arr: number[]): number[] => {
 }
 
 console.log(selectionSortInPlace(arr))
+
+export {}

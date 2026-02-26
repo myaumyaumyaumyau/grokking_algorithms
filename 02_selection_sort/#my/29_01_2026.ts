@@ -32,3 +32,5 @@ const selectedSortRecursive = (arr: number[], index = 0): number[] => {
     [newArr[smallest], newArr[index]] = [newArr[index], newArr[smallest]]
     return selectedSortRecursive(newArr, index + 1)
 }
+
+export {}

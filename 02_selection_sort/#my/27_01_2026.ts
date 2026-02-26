@@ -22,3 +22,5 @@ const selectionSort = (arr: number[]): number[] => {
 
     return newArr
 }
+
+export {}

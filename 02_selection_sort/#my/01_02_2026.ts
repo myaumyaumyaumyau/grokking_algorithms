@@ -33,3 +33,5 @@ const selectionSortRecursive = (arr: number[], index = 0 ): number[] => {
 
     return selectionSortRecursive(sortedArr, index + 1)
 }
+
+export {}
