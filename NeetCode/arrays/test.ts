@@ -1,19 +1,15 @@
-const fibonacci = (n: number): number => {
-    let result = 0
-    let prevRes = 1
-    let prevPrevRes = 0
+const prefix = (nums: number[]): number[] => {
+    const prefix = new Array(nums.length + 1).fill(0)
 
-    for (let i = 2; i <= n; i++) {
-        result = prevRes + prevPrevRes
-        prevPrevRes = prevRes
-        prevRes = result
+    for (let i = 0; i < nums.length; i++) {
+        prefix[i + 1] = prefix[i] + nums[i]
     }
 
-    return result
+    return prefix
 }
 
-const fibonacciRecursive = (n: number): number => {
-    if (n <= 1) return n
-
-    return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2)
+const rangeSum = (prefix: number[], L: number, R: number): number => {
+    return prefix[R + 1] - prefix[L]
 }
+
+export {}
