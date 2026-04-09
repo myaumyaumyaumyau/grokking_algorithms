@@ -180,4 +180,24 @@ const shortestSubarray = (arr: number[], target: number): number => {
     return length === Infinity ? 0 : length
 }
 
+const prefixSum = (arr: number[]): number[] => {
+    const newArr = new Array(arr.length + 1).fill(0)
+
+    for (let i = 0; i < arr.length; i++) {
+        newArr[i + 1] = newArr[i] + arr[i]
+    }
+
+    return newArr
+}
+
+const suffixSum = (arr: number[]): number[] => {
+    const newArr = new Array(arr.length + 1).fill(0)
+
+    for (let i = arr.length - 1; i >= 0; i--) {
+        newArr[i] = newArr[i + 1] + arr[i]
+    }
+
+    return newArr
+}
+
 export {}
