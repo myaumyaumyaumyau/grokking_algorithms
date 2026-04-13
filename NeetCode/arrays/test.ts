@@ -181,23 +181,20 @@ const shortestSubarray = (arr: number[], target: number): number => {
 }
 
 const prefixSum = (arr: number[]): number[] => {
-    const newArr = new Array(arr.length + 1).fill(0)
-
+    const prefixSum = new Array(arr.length + 1).fill(0)
     for (let i = 0; i < arr.length; i++) {
-        newArr[i + 1] = newArr[i] + arr[i]
+        prefixSum[i + 1] = prefixSum[i] + arr[i]
     }
-
-    return newArr
+    return prefixSum
 }
 
 const suffixSum = (arr: number[]): number[] => {
-    const newArr = new Array(arr.length + 1).fill(0)
-
+    let suffixSum = new Array(arr.length + 1).fill(0)
     for (let i = arr.length - 1; i >= 0; i--) {
-        newArr[i] = newArr[i + 1] + arr[i]
+        suffixSum[i] = suffixSum[i + 1] + arr[i]
     }
-
-    return newArr
+    return suffixSum
 }
+
 
 export {}
