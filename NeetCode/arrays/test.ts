@@ -196,5 +196,15 @@ const suffixSum = (arr: number[]): number[] => {
     return suffixSum
 }
 
+const tribonacci = (num: number): number => {
+    if (num <= 0) {
+        return 0
+    }
+    if (num === 1 || num === 2) {
+        return 1
+    }
+
+    return tribonacci(num - 1) + tribonacci(num - 2) + tribonacci(num - 3)
+}
 
 export {}
