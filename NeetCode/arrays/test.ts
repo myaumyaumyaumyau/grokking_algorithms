@@ -207,4 +207,47 @@ const tribonacci = (num: number): number => {
     return tribonacci(num - 1) + tribonacci(num - 2) + tribonacci(num - 3)
 }
 
+/**
+ * Есть дерево, которое лежит в переменной tree. Нужно написать функцию,
+ * которая будет пробегать по этому дереву и возвращать массив всех собранных value из этого дерева.
+ **/
+type TreeNode1 = { value: number; children?: TreeNode1[] };
+const tree: TreeNode1 = {
+    value: 1,
+    children: [
+        {
+            value: 2,
+            children: [{ value: 3 }],
+        },
+        {
+            value: 4,
+            children: [{ value: 5 }, { value: 6 }],
+        },
+    ],
+}
+
+const treeTotalValue = (node: TreeNode1): number => {
+    let value = node.value
+
+    if (node.children?.length) {
+        for (const child of node.children) {
+            value += treeTotalValue(child)
+        }
+    }
+
+    return value
+}
+
+const treeValuesArray = (node: TreeNode1): number[] => {
+    let values = [node.value]
+
+    if (node.children?.length) {
+        for (const child of node.children) {
+            values.concat(treeValuesArray(child))
+        }
+    }
+
+    return values
+}
+
 export {}
