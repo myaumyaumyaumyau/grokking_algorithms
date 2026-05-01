@@ -32,4 +32,35 @@ const selectedSortRecursive = (arr, index = 0) => {
     return result;
 }
 
-selectedSortRecursive([6, 5, 7, 2,])
+// selectedSortRecursive([6, 5, 7, 2,])
+
+
+const createCounter = () => {
+    let count = 0
+
+    const increment = () => {
+        count += 1
+    }
+
+    return {count, increment}
+}
+
+const myCounter = createCounter()
+myCounter.increment()
+myCounter.increment()
+console.log(myCounter.count)
+// =========================================
+const createCounter2 = () => {
+    let count = 0
+
+    const increment = () => {
+        count += 1
+    }
+
+    return {count: () => count, increment}
+}
+
+const myCounter2 = createCounter2()
+myCounter2.increment()
+myCounter2.increment()
+console.log(myCounter2.count())

@@ -217,11 +217,11 @@ const tree: TreeNode1 = {
     children: [
         {
             value: 2,
-            children: [{ value: 3 }],
+            children: [{value: 3}],
         },
         {
             value: 4,
-            children: [{ value: 5 }, { value: 6 }],
+            children: [{value: 5}, {value: 6}],
         },
     ],
 }
@@ -249,5 +249,97 @@ const treeValuesArray = (node: TreeNode1): number[] => {
 
     return values
 }
+
+/** 5. Написать написать функцию, заменяющую значения первого массива
+ * на значения из второго массива с указанной позиции, сохраняя длину первого.
+ */
+// Example: pasteArray([1, 2, 3, 4, 5], [9, 8, 7], 3) => [1, 2, 3, 9, 8]
+const pasteArray = (arr1: number[], arr2: number[], pos: number): number[] => {
+    const res = [...arr1]
+    let k = 0
+
+    for (let i = pos; i < arr1.length; i++) {
+        if (k >= arr2.length) {
+            break
+        }
+
+        res[i] = arr2[k]
+        k++
+    }
+
+    return res
+}
+
+const getNumberCharacters = (str: string): string => {
+    const map = new Map()
+    let res = ''
+
+    for (const char of str) {
+        map.set(char, (map.get(char) ?? 0) + 1)
+    }
+
+    for (const [char, frequency] of map) {
+        res += frequency + char
+    }
+
+    return res
+}
+
+// Вернуть массив id всех нод у которых красный цвет
+type TreeNodeWithColor = {
+    id: string
+    color: 'red' | 'blue'
+    children: TreeNodeWithColor[]
+}
+
+const getRedIds = (node: TreeNodeWithColor): string[] => {
+    const res: string[] = []
+    if (node.color === 'red') {
+        res.push(node.id)
+    }
+
+    for (const child of node.children) {
+        res.push(...getRedIds(child))
+    }
+
+    return res
+}
+
+// нужно вернуть самого младшего, самого старшего, и разницу в возрасте
+const getAge = (arr: {name: string, age: number}[]): number[] => {
+    const res: number[] = []
+
+    for (const person of arr) {
+        res.push(person.age)
+    }
+    res.sort((a,b) => a - b)
+
+    const youngest = res[0]
+    const oldest = res[res.length - 1]
+    const diff = oldest - youngest
+
+    return [youngest, oldest, diff]
+}
+
+const obj = [
+    {
+        name: "Tom",
+        age: 13,
+    },
+    {
+        name: "Tim",
+        age: 56,
+    },
+    {
+        name: "Bob",
+        age: 45,
+    },
+    {
+        name: "Joe",
+        age: 67,
+    },
+]
+
+console.log(getAge(obj)); // [13, 67, 54] 1 самый младший, 2 самый старший, 3 разница в возрасте.
 
 export {}
